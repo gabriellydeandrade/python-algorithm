@@ -7,7 +7,7 @@ from .maximum_pairwise_product import get_maximum_pairwise_product
 class TestMaximumPairwiseProduct(TestCase):
     def test_it_returns_the_two_maximum_products(self):
         maximum_pairwise_product = get_maximum_pairwise_product(
-            elements=7, numbers=[7, 8, 1, 3, 2, 9, 10]
+            numbers=[7, 8, 1, 3, 2, 9, 10]
         )
         self.assertEqual(maximum_pairwise_product, 90)
 
@@ -15,7 +15,7 @@ class TestMaximumPairwiseProduct(TestCase):
         self,
     ):
         maximum_pairwise_product = get_maximum_pairwise_product(
-            elements=8, numbers=[7, 8, 1, 3, 2, 9, 10, 10]
+            numbers=[7, 8, 1, 3, 2, 9, 10, 10]
         )
         self.assertEqual(maximum_pairwise_product, 100)
 
@@ -23,7 +23,7 @@ class TestMaximumPairwiseProduct(TestCase):
         numbers = [random.randint(2, 200000) for _ in range(0, 100001)]
 
         time_start = time.clock()
-        get_maximum_pairwise_product(elements=100000, numbers=numbers)
+        get_maximum_pairwise_product(numbers=numbers)
         time_finish = time.clock() - time_start
 
         self.assertLess(time_finish, 1)
