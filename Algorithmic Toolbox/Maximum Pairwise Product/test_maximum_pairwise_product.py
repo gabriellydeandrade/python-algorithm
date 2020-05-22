@@ -22,8 +22,8 @@ class TestMaximumPairwiseProduct(TestCase):
     def test_it_runs_in_at_least_one_second_even_with_large_numbers(self):
         numbers = [random.randint(2, 200000) for _ in range(0, 100001)]
 
-        time_start = time.clock()
+        time_start = time.process_time()
         get_maximum_pairwise_product(numbers=numbers)
-        time_finish = time.clock() - time_start
+        time_finish = time.process_time() - time_start
 
         self.assertLess(time_finish, 1)
