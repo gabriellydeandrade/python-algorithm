@@ -1,8 +1,6 @@
-import signal
 from unittest import TestCase
 
-from fibonacci.naive_fibonacci import fibonacci, calculate_number_of_steps_in_naive_algorithm
-from fibonacci.test.utils import handler_signal, AlgorithmTooSlow
+from fibonacci.fibonacci import fibonacci, calculate_number_of_steps_in_algorithm
 
 
 class TestFibonacci(TestCase):
@@ -16,18 +14,12 @@ class TestFibonacci(TestCase):
     def test_if_3_is_passed_it_returns_2(self):
         self.assertEqual(fibonacci(number=3), 2)
 
-    def test_if_takes_longer_than_2_seconds_for_big_numbers_of_fibonacci(self):
-        signal.signal(signal.SIGALRM, handler_signal)
-        seconds_wait = 2
-        signal.alarm(seconds_wait)
 
-        with self.assertRaises(AlgorithmTooSlow):
-            fibonacci(number=100)
+class TestNumberOfStepsInAlgorithm(TestCase):
+    def test_if_tn_is_less_or_equal_than_fn_for_huge_numbers(self):
+        tn = calculate_number_of_steps_in_algorithm(number=100)
+        fn = fibonacci(number=100)
+
+        self.assertLessEqual(tn, fn)
 
 
-class TestNumberOfStepsInNaiveAlgorithm(TestCase):
-    def test_if_tn_is_greater_or_equal_than_fn(self):
-        tn = calculate_number_of_steps_in_naive_algorithm(number=6)
-        fn = fibonacci(number=6)
-
-        self.assertGreaterEqual(tn, fn)

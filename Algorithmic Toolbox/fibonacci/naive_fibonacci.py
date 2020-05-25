@@ -1,4 +1,4 @@
-def fibonacci(number: int) -> int:
+def naive_fibonacci(number: int) -> int:
     """
 
     :param number: the order of the fibonacci that we want to discover Fn
@@ -10,7 +10,7 @@ def fibonacci(number: int) -> int:
     if number <= 1:
         return number
     else:
-        return fibonacci(number=number - 1) + fibonacci(number=number - 2)
+        return naive_fibonacci(number=number - 1) + naive_fibonacci(number=number - 2)
 
 
 def calculate_number_of_steps_in_naive_algorithm(number: int):
