@@ -2,7 +2,7 @@ import signal
 from unittest import TestCase
 
 from fibonacci.naive_fibonacci import naive_fibonacci, calculate_number_of_steps_in_naive_algorithm
-from fibonacci.test.utils import handler_signal, AlgorithmTooSlow
+from utils import handler_signal, AlgorithmTooSlow
 
 
 class TestNaiveFibonacci(TestCase):
