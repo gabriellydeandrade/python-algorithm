@@ -1,7 +1,7 @@
 def validate_args(func):
     def args_should_be_integer(a, b):
         if isinstance(a, int) and isinstance(b, int):
-            args_should_be_positive(a, b)
+            return args_should_be_positive(a, b)
         else:
             raise TypeError("Arguments passed should be integers")
 
