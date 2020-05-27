@@ -15,6 +15,10 @@ class TestNaiveGCD(TestCase):
         result = naive_gcd(a=25, b=5)
         self.assertEqual(result, 5)
 
+    def test_if_not_calculate_with_numbers_are_negative(self):
+        with self.assertRaises(AttributeError):
+            naive_gcd(a=-25, b=-5)
+
     def test_if_takes_longer_than_2_seconds_for_big_numbers_of_gcd(self):
         signal.signal(signal.SIGALRM, handler_signal)
         seconds_wait = 2
